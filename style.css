@@ -1,25 +1,4 @@
-/* =========================
-FILE: style.css - Advanced CSS Portfolio by Revanth
-Features: CSS Grid, Flexbox, Media Query, CSS Variables
-========================= */
-
-/* CSS VARIABLES - Light/Dark Mode */
-:root {
-  --bg-color: #f4f7fb;
-  --text-color: #222;
-  --card-bg: #ffffff;
-  --header-bg: #0f172a;
-  --accent: #2563eb;
-}
-
-body.dark {
-  --bg-color: #1a1a1a;
-  --text-color: #e0e0e0;
-  --card-bg: #2a2a2a;
-  --header-bg: #000;
-  --accent: #38bdf8;
-}
-
+/* RESET - To-Do App by Revanth Kumar */
 * {
   margin: 0;
   padding: 0;
@@ -28,214 +7,181 @@ body.dark {
 
 /* BODY */
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.7;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: 0.3s ease;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #0f172a;
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+  min-height: 100vh;
 }
 
 /* CONTAINER */
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
+.todo-container {
+  background: #ffffff;
+  width: 100%;
+  max-width: 650px;
+  padding: 35px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
-/* SKIP LINK */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 10px;
-  background: black;
-  color: white;
-  padding: 10px;
-  z-index: 100;
-}
-
-.skip-link:focus {
-  top: 10px;
-}
-
-/* HEADER - FLEXBOX */
-.header {
-  background-color: var(--header-bg);
-  color: white;
-  padding: 20px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.logo {
-  font-size: 32px;
-  font-weight: bold;
-}
-
-/* NAVIGATION - FLEXBOX */
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  margin-top: 10px;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.nav-links a:hover,
-.nav-links a:focus {
-  color: var(--accent);
-}
-
-/* HERO */
-.hero {
-  background: linear-gradient(to right, #1e3a8a, var(--accent));
-  color: white;
-  padding: 100px 20px;
+/* TITLE */
+h1 {
   text-align: center;
+  margin-bottom: 30px;
+  color: #0f172a;
+  font-size: 32px;
 }
 
-.hero h2 {
-  font-size: 45px;
-  margin-bottom: 20px;
+/* INPUT SECTION */
+.input-section {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
 }
 
-.hero p {
-  max-width: 700px;
-  margin: auto;
-  font-size: 18px;
+.input-section input {
+  flex: 1;
+  padding: 14px;
+  border: 2px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: 0.3s;
 }
 
-/* BUTTON */
-.btn {
-  display: inline-block;
-  margin-top: 25px;
-  background-color: white;
-  color: var(--accent);
-  padding: 12px 25px;
-  text-decoration: none;
-  border-radius: 5px;
+.input-section input:focus {
+  outline: none;
+  border-color: #0f172a;
+}
+
+.input-section button {
+  padding: 14px 24px;
+  border: none;
+  background: #0f172a;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
   font-weight: bold;
   transition: 0.3s;
 }
 
-.btn:hover,
-.btn:focus {
-  background-color: #dbeafe;
+.input-section button:hover {
+  background: #1e293b;
   transform: scale(1.05);
 }
 
-/* SECTION */
-.section {
-  padding: 70px 0;
-}
-
-.section h2 {
+/* FILTERS */
+.filter-section {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
   margin-bottom: 25px;
-  color: var(--accent);
 }
 
-/* BACKGROUND */
-.gray-bg {
-  background-color: #e2e8f0;
-}
-
-/* CARDS - CHANGED TO CSS GRID */
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.card {
-  background-color: var(--card-bg);
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+.filter-btn {
+  padding: 10px 18px;
+  border: none;
+  background: #e2e8f0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
   transition: 0.3s;
 }
 
-.card:hover {
-  transform: translateY(-5px);
+.filter-btn:hover {
+  background: #cbd5e1;
 }
 
-.card h3 {
-  margin-bottom: 15px;
-  color: var(--accent);
-}
-
-/* ACHIEVEMENTS */
-.achievement-list {
-  margin-left: 20px;
-}
-
-.achievement-list li {
-  margin-bottom: 10px;
-}
-
-/* FORM */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.contact-form label {
-  margin-top: 15px;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 12px;
-  border: 1px solid #cbd5e1;
-  border-radius: 5px;
-  font-size: 16px;
-  background: var(--card-bg);
-  color: var(--text-color);
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: 3px solid #93c5fd;
-}
-
-/* FOOTER */
-.footer {
-  background-color: var(--header-bg);
+.filter-btn.active {
+  background: #0f172a;
   color: white;
-  text-align: center;
-  padding: 20px 0;
 }
 
-/* MEDIA QUERY - RESPONSIVE */
-@media (max-width: 992px) {
-  .card-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* TASK LIST */
+#task-list {
+  list-style: none;
 }
 
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .nav-links {
-    flex-direction: column;
-    gap: 10px;
+/* TASK ITEM */
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8fafc;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  transition: 0.3s;
+}
+
+.task-item:hover {
+  background: #f1f5f9;
+  transform: translateX(5px);
+}
+
+/* CHECKBOX - Extra feature we added */
+.check-box {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* COMPLETED TASK */
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+/* BUTTONS */
+.task-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn,
+.delete-btn {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.edit-btn {
+  background: #f59e0b;
+  color: white;
+}
+
+.edit-btn:hover {
+  background: #d97706;
+}
+
+.delete-btn {
+  background: #dc2626;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
+}
+
+/* MOBILE - Media Query */
+@media (max-width: 600px) {
+  .todo-container {
+    padding: 25px 20px;
   }
 
-  .hero h2 {
-    font-size: 32px;
+  .input-section {
+    flex-direction: column;
+  }
+
+  .filter-section {
+    flex-wrap: wrap;
   }
   
-  .card-container {
-    grid-template-columns: 1fr;
+  h1 {
+    font-size: 26px;
   }
 }
